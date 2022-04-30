@@ -1,5 +1,6 @@
 from __future__ import print_function
 import torch.utils.data as data
+#to generate dataset in the form of either map-style or iterable type of datasets.
 import torch
 import numpy as np
 import h5py
