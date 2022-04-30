@@ -1,22 +1,32 @@
 """Reference from https://github.com/zhangfanmark/DeepWMA"""
 import numpy as np
 import whitematteranalysis as wma
+# refers https://github.com/SlicerDMRI/whitematteranalysis/blob/master/whitematteranalysis/fibers.py
 import utils.fibers as fibers
 
 
 def feat_RAS(pd_tract, number_of_points=15):
-    """The most simple feature for initial test"""
+    """Convert input vtkPolyData to the fixed length fiber representation of this class.
+        The polydata should contain the output of tractography.
+        The output is downsampled fibers in array format and hemisphere info is also calculated.
+        and then extract RAS coordinates from the fiberarray"""
+
 
     fiber_array = wma.fibers.FiberArray()
     fiber_array.convert_from_polydata(pd_tract, points_per_fiber=number_of_points)
     # fiber_array_r, fiber_array_a, fiber_array_s have the same size: [number of fibers, points of each fiber]
+    
     feat = np.dstack((fiber_array.fiber_array_r, fiber_array.fiber_array_a, fiber_array.fiber_array_s))
+    #dstack: depth stack, vstack: vertical stack, hstack: horizontal stack
+    # dstack: [3,1], [3,1] : [3,1,2]
+    # hstack: [3,1], [3,1] : [3,2]
+    # vstack: [3,1], [3,1] : [6,1]
 
     return feat
 
 
 def feat_curv_tors(pd_tract, number_of_points=15):
-    """The most simple feature for initial test"""
+    """For extracting the curvature and torsion features in the fiber information"""
 
     fiber_array = fibers.FiberArray()
     fiber_array.convert_from_polydata_with_trafic(pd_tract, points_per_fiber=number_of_points)
@@ -31,9 +41,12 @@ def feat_RAS_curv_tors(pd_tract, number_of_points=15):
 
     fiber_array = fibers.FiberArray()
     fiber_array.convert_from_polydata_with_trafic(pd_tract, points_per_fiber=number_of_points)
-
+    
+    # incorporates both RAS, curvature and torsion into one feature array
     feat = np.dstack((fiber_array.fiber_array_r, fiber_array.fiber_array_a, fiber_array.fiber_array_s,
                       fiber_array.fiber_array_cur, fiber_array.fiber_array_tor))
+    # Would dstack work in this, since it works for upto 3 dimensional vectors? 
+    
 
     return feat
 
