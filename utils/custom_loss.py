@@ -7,6 +7,7 @@ import torch.nn.functional as F
 class SupConLoss(nn.Module):
     """Supervised Contrastive Learning: https://arxiv.org/pdf/2004.11362.pdf.
     It also supports the unsupervised contrastive loss in SimCLR"""
+    #why are they using temperature as the argument?
     def __init__(self, temperature=0.07, base_temperature=0.07):
         super(SupConLoss, self).__init__()
         self.temperature = temperature
