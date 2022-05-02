@@ -24,10 +24,14 @@ class SupConDataset(data.Dataset):
         if self.split == 'train':
             train_fold = 0
             train_fold_lst = []
+            # looks like k-fold cross validation
             for i in range(self.k):
+                # why haven't they went through range - 1
                 if i+1 != self.num_fold:
                     # load feature data
+                    # read the hdf5 file, and works if only the file exists
                     feat_h5 = h5py.File(os.path.join(root, 'sf_clusters_train_featMatrix_{}.h5'.format(str(i+1))), 'r')
+                    
                     features = np.concatenate((feat_h5['sc_feat'], feat_h5['other_feat']), axis=0)
                     # load label data
                     label_h5 = h5py.File(os.path.join(root, 'sf_clusters_train_label_{}.h5'.format(str(i+1))), 'r')
