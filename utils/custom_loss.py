@@ -25,14 +25,18 @@ class SupConLoss(nn.Module):
         Returns:
             A loss scalar.
         """
+        #what is bsz?
         device = (torch.device('cuda') if features.is_cuda else torch.device('cpu'))
 
-        if len(features.shape) > 3:
+        if len(features.shape) > 3: #if greater than a 3 dimensional vector
+            # reshapes the feature vector to the one listed below, -1 will be interpreted from the remaining dimensions
             features = features.view(features.shape[0], features.shape[1], -1)
-
+        
+        # dividing in those batch sizes
         batch_size = features.shape[0]
 
         if labels is not None and mask is not None:
+            # why can't we define both labels and mask? 
             raise ValueError('Cannot define both `labels` and `mask`')
         elif labels is None and mask is None:
             mask = torch.eye(batch_size, dtype=torch.float32).to(device)
