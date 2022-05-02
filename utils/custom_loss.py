@@ -39,22 +39,33 @@ class SupConLoss(nn.Module):
             # why can't we define both labels and mask? 
             raise ValueError('Cannot define both `labels` and `mask`')
         elif labels is None and mask is None:
+            # if both are none, forget labels and create a mask with the identity function
+            # mask becomes an identity matrix of dimension = batch_size
             mask = torch.eye(batch_size, dtype=torch.float32).to(device)
         elif labels is not None:
+            # if labels are available make the mask value by the identity matrix
+            # returns a contiguous memory of the dataframe, and view reshapes it to (n_dimensions, 1)
             labels = labels.contiguous().view(-1, 1)
             if labels.shape[0] != batch_size:
                 raise ValueError('Num of labels does not match num of features')
+                
+            #element wise equating function which gives boolean output for every element matching
             mask = torch.eq(labels, labels.T).float().to(device)
         else:
+            # if mask value is provided directly pass it to the float operation and feed 
             mask = mask.float().to(device)
 
         contrast_count = features.shape[1]
+        
+        # .cat : concatenates vertically
+        # unbind removes one dimension of the tensor and gives out a tuple of those sub-tensors
         contrast_feature = torch.cat(torch.unbind(features, dim=1), dim=0)
 
         anchor_feature = contrast_feature
         anchor_count = contrast_count
 
         # compute logits
+        
         anchor_dot_contrast = torch.div(torch.matmul(anchor_feature, contrast_feature.T), self.temperature)
 
         # for numerical stability
