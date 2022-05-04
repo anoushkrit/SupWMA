@@ -65,7 +65,7 @@ class SupConLoss(nn.Module):
         anchor_count = contrast_count
 
         # compute logits
-        
+        # matrix multiplication by its transpose to make it a square matrix, anchor feature and contrast feature are the same thing
         anchor_dot_contrast = torch.div(torch.matmul(anchor_feature, contrast_feature.T), self.temperature)
 
         # for numerical stability
