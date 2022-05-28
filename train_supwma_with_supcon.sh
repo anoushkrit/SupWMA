@@ -21,7 +21,12 @@ tmp=0.1
 num_swm_ol=198
 num_other=602
 
+
 input_path=./TrainData/198gtswm_${num_swm_ol}ol_${num_other}other/h5_np15/
+
+# 198gtswm_198ol_602other/h5_np15
+
+# ground truth SWM path
 encoder_path=./ModelWeights/supwma_with_supcon/contra_${num_swm_ol}ol_${num_other}other_epoch${contra_epoch}_${opt}_lr${contra_lr}_wd${wd}_mon${momentum}_${scheduler}${T_0}_${T_mult}_tmp${tmp}
 classifier_path=/encoder${supcon_epoch}epoch_classifier_wucd_baseline_${cls_epoch}epoch
 
