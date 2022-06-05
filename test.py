@@ -82,6 +82,7 @@ def test_net():
                 pred_idx = torch.where(pred_idx < 198, pred_idx, torch.tensor(198).to(device))
                 # entire data
                 if args.input_label_path is not None:
+                    print("Input LABEL path is not none, we have the ground truth")
                     # for classification report
                     correct = pred_idx.eq(labels.data).cpu().sum()
                     # for calculating test accuracy

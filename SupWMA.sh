@@ -25,6 +25,7 @@ subject_ukf=./TestData/${subject_ID}
 
 # Registration data paths
 atlas_T2=./TestData/100HCP-population-mean-T2.nii.gz
+
 # atlas_T2=./TestData/100HCP-population-mean-T2.nii.gz
 
 baseline_b0=./TestData/${subject_ID}/${subject_ID}-dwi_meanb0.nrrd
