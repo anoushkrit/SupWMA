@@ -1,6 +1,6 @@
 # SupWMA
 
-This repository releases the source code, pre-trained model and testing sample for the work, "SupWMA: consistent and efficient tractography parcellation of superficial white matter with deep learning," which is accepted by the 2022 IEEE International Symposium on Biomedical Imaging (ISBI).
+This repository releases the source code, pre-trained model and testing sample for the work, "SupWMA: consistent and efficient tractography parcellation of superficial white matter with deep learning," which is accepted by the ISBI 2022 (finalist for best paper award).
 
 Compared to several state-of-the-art methods, SupWMA obtains a highly consistent and accurate SWM parcellation result. In addition, the computational speed of SupWMA is much faster than other methods.
 
@@ -8,7 +8,7 @@ Compared to several state-of-the-art methods, SupWMA obtains a highly consistent
 
 ## License
 
-The contents of this repository are released under an [MIT](LICENSE) license.
+The contents of this repository are released under an [Slicer](LICENSE) license.
 
 ## Dependencies:
 
@@ -35,7 +35,7 @@ Train with our dataset (available upon request)
 2. Run `sh train_supwma_with_supcon.sh`
 
 ## Train using your custom dataset
-Your input streamline features should have size of (number_streamlines, number_points_per_streamline, 3), and size of labels is (number_streamlines, ). 
+Your input streamline features should have size of (number_streamlines, number_points_per_streamline, 3), and size of labels is (number_streamlines, ). You can save/load features and labels using .h5 files.
 
 Although we have swm outliers class and other (dwm) class in our dataset, your dataset is not required to have these classes. For example, you can train your model using a dataset with 600 swm cluster classes. The training process will be the same. 
 

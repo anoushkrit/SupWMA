@@ -4,8 +4,10 @@
 *.tar.gz
 /SupWMA_parcellation_results
 /TestData
-/TrainedModel
+# /TrainedModel
 /TrainData
+/ModelWeights
+*.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -97,4 +99,4 @@ ENV/
 # Rope project settings
 .ropeproject
 
-*.pickle
+# *.pickle
