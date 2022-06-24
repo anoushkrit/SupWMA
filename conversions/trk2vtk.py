@@ -1,5 +1,3 @@
-# https://mail.python.org/pipermail/neuroimaging/2019-July/002006.html
-
 import vtk
 from dipy.tracking.streamline import Streamlines
 from dipy.io.streamline import load_trk
