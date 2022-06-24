@@ -4,6 +4,13 @@
 *.tar.gz
 /SupWMA_parcellation_results
 /TestData
+*.trk
+*.tck 
+*.vtp
+*.vtk
+*.nii.gz
+*.nrrd
+
 # /TrainedModel
 /TrainData
 /ModelWeights

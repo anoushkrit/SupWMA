@@ -22,6 +22,7 @@ num_swm_ol=198
 num_other=602
 
 # fan zhang's dataset
+# translates to 198 ground truth SWM clusters and 
 input_path=./TrainData/198gtswm_${num_swm_ol}ol_${num_other}other/h5_np15/
 
 

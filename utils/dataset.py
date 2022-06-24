@@ -4,7 +4,7 @@ import torch.utils.data as data
 import torch
 import numpy as np
 import h5py
-import sys
+import sys  
 import os
 sys.path.append('../')
 import utils.tract_feat as tract_feat
@@ -26,7 +26,6 @@ class SupConDataset(data.Dataset):
             train_fold_lst = []
             # looks like k-fold cross validation
             for i in range(self.k):
-                # why haven't they went through range - 1
                 if i+1 != self.num_fold:
                     # load feature data
                     # read the hdf5 file, and works if only the file exists
