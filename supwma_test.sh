@@ -42,7 +42,7 @@ nipype.interfaces.slicer.registration.brainsfit --fixedVolume
 # wm_harden_transform.py ${subject_ukf} $output_folder -t ${subject_transform} -j 1 $Slicer
 wm_harden_transform.py ${subject_ukf} $output_folder $Slicer -t ${subject_transform} -j 1
 
-# RAS feature extraction
+# RAS feature extraction (DeepWMA FiberMap (Fiber Descriptor))
 python3 ./extract_tract_feat.py ${subject_folder}/${ukf_name} $output_folder -outPrefix ${subject_ID} -feature RAS -numPoints 15
 # SWM parcellation
 python3 ./test.py --weight_path ${model_folder} --feat_path $output_folder/${subject_ID}_featMatrix.h5 --out_path $output_folder --label_names ${model_folder}/label_names.h5 --out_prefix ${subject_ID} --tractography_path ${subject_ukf}/${ukf_name}

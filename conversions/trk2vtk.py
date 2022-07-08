@@ -44,4 +44,4 @@ tracks_for_visualisation = "/home/ang/Documents/GitHub/SupWMA/merged_tracks.trk"
 # streams.load_trk(tracks_for_visualisation)
 streams = load_trk(tracks_for_visualisation, reference='same')
 streamlines = Streamlines(streams)
-saveStreamlinesVTK(streamlines,"/home/ang/Documents/GitHub/SupWMA/merged_tracks.tck")
+saveStreamlinesVTK(streamlines,"/home/ang/Documents/GitHub/SupWMA/merged_tracks.vtk")
