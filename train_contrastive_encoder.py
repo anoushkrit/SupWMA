@@ -29,6 +29,7 @@ def load_data():
     # load feature and label data
     train_dataset = SupConDataset(
         root=args.input_path,
+        #setting the root path, from the arguments
         logger=logger,
         num_fold=num_fold,
         k=args.k_fold,
@@ -69,8 +70,11 @@ def train_val_net(net):
             # data loading
             points, labels = data
             # points[0]: [B, N, 3], points[1]: [B, N, 3] to points [2B, N, 3]
+            # where B: batch_size, N: number of points per streamline and 3 is the coordinates
             points = torch.cat([points[0], points[1]], dim=0)
+            # [dim=0] row-wise (vertically concatenating the points) hence leading to twice the batch size.
             points = points.transpose(2, 1)  # points [2B, 3, N]
+            # bringing the [0,1,2] , 2nd dimension to 1st dimension
             labels = labels[:, 0]  # [B,1] rank2 to [B] rank1
             bs = labels.shape[0]  # size in this batch, which is <=args.train_batch_size
             points, labels = points.to(device), labels.to(device)
