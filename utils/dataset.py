@@ -102,6 +102,7 @@ class ORGDataset(data.Dataset):
         if self.split == 'train':
             train_fold = 0
             train_fold_lst = []
+            #for the k-fold cross validation
             for i in range(self.k):
                 if i+1 != self.num_fold:
                     # load feature data
@@ -180,7 +181,7 @@ class HCPDataset(data.Dataset):
                     # load feature data
                     # TODO: Feel free to change the path
 
-                    # We do not have the sf_clusters_train_features_matrix
+                    # We do not have the sf_clusters_train_featMatrix
                     feat_h5 = h5py.File(os.path.join(root, 'sf_clusters_train_featMatrix_{}.h5'.format(str(i+1))), 'r')
                     features = np.concatenate((feat_h5['sc_feat'], feat_h5['other_feat']), axis=0)
                     # load label data

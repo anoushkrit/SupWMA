@@ -26,6 +26,7 @@ def load_test_data():
     test_data_size = len(test_dataset)
     print(script_name, 'The test data size is:{}'.format(test_data_size))
     num_classes = len(test_dataset.label_names_in_model)
+    
     # load label names
     label_names = test_dataset.label_names_in_model
     print('The label names are: {}'.format(str(label_names)))

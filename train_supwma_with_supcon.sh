@@ -4,6 +4,7 @@
 opt='Adam'
 wd=0
 momentum=-1
+# contrastive loss
 contra_lr=1e-2
 contra_epoch=100
 cls_epoch=80

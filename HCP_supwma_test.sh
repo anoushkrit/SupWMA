@@ -3,7 +3,7 @@ BRAINSFitCLI=/home/ang/Documents/Slicer-5.0.2/lib/Slicer-5.0/cli-modules/BRAINSF
 
 export LD_LIBRARY_PATH=/home/ang/Documents/Slicer-5.0.2/lib/Slicer-5.0/:$LD_LIBRARY_PATH
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ang/Documents/Slicer-5.0.2/lib/Slicer-5.0/cli-modules/BRAINSFit
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ang/Documents/Slicer-5.0.2/lib/Slicer-5.0/cl i-modules/BRAINSFit
 # export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ang/Documents/Slicer-5.0.2/lib/Slicer-5.0/cli-modules/BRAINSFit
 # echo $LD_LIBRARY_PATH
 
@@ -15,14 +15,17 @@ source_fibers_folder=/media/ang/Data/dMRI_data/105HCP/Fiber_Tracts/
 subject_ID=784565
 
 echo ${subject_ID}
-
-# performs trk-tck-vtk-vtppir
+   
+# performs trk-tck-vtk-vtp
 # cd ${source_fibers_folder}${subject_ID}
+
+## INPUT other DATA
+# giving input a .trk file from HCP dataset and then converting to .vtk to feed into the trained model
 echo _______CONVERSION:[.trk to .tck]_________
 (cd ${source_fibers_folder}${subject_ID}; trampolino convert -t ${source_fibers_folder}${subject_ID}/${subject_ID}.trk trk2tck)
 sleep 5
 mv ${source_fibers_folder}${subject_ID}/trampolino/track.tck ${source_fibers_folder}${subject_ID}/${subject_ID}.tck
-sudo rm -rf ${source_fibers_folder}${subject_ID}/meta 
+sudo rm -rf ${source_fibers_folder}${subject_ID}/meta
 rm -rf ${source_fibers_folder}${subject_ID}/trampolino
 
 tckinfo ${source_fibers_folder}${subject_ID}/${subject_ID}.tck
@@ -32,28 +35,25 @@ tckconvert ${source_fibers_folder}${subject_ID}/${subject_ID}.tck ${source_fiber
 # python3 ./conversions/vtk2vtp.py ${source_fibers_folder}${subject_ID}/${subject_ID}.vtk
 
 
-#test_paths
+## TRACTOGRAHY PATH
 # subject_ID=101006
-
 # ukf_name=${subject_ID}_ukf_pp_with_region.vtp
 ukf_name=${source_fibers_folder}${subject_ID}/${subject_ID}.vtk
 subject_ukf=./TestData/${subject_ID}
 
-# echo $subject_ID $ukf_name $subject_ukf
-
+## ATLAS
+# Only 100 HCP Atlas Available
 atlas_T2=./TestData/100HCP-population-mean-T2.nii.gz
-
 # baseline_b0, passing baseline-b0 for 101006
 baseline_b0=./TestData/101006/101006-dwi_meanb0.nrrd
+# passing baseline as same as the previous test data available
 
 echo $atlas_T2 $baseline_b0
 
-#output
+## OUTPUT
 subject_folder=./TestData/${subject_ID}
-
 output_folder=./SupWMA_parcellation_results/${subject_ID}
 mkdir $output_folder && mkdir $subject_folder
-
 
 #transform (from b0 to atlasT2)
 subject_transform=./TestData/${subject_ID}_b0_to_atlasT2.tfm
