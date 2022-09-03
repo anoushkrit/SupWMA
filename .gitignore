@@ -10,6 +10,9 @@
 *.vtk
 *.nii.gz
 *.nrrd
+*.tfm 
+*.xfm 
+*.mrml
 
 # /TrainedModel
 /TrainData
