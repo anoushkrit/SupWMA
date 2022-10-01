@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # Config files
 Slicer=/home/ang/Documents/Slicer-5.0.2/Slicer
