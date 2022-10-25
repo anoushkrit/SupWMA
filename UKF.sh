@@ -16,6 +16,7 @@ convert_path=/home/ang/Documents/GitHub/SupWMA/conversion/conversion
 
 python3 $convert_path/nhdr_write.py --nifti $nifti --bval $bval --bvec $bvec --nhdr $nhdr_data
 python3 $convert_path/nhdr_write.py --nifti $nifti --nhdr $mask
+
 # Convert all the NIFTI files to NHDR using NIFTI->NHDR write form the conversion pipeline in the UKFTractography 
 
 
@@ -24,8 +25,9 @@ python3 $convert_path/nhdr_write.py --nifti $nifti --nhdr $mask
 # Pass the .vtk file in the subject specific parcellation to clusters and the tracts 
 
 
-# Create the inpur training data for SupWMA
+# Create the input training data for SupWMA
 
 
 
-# Create the label files 
+# Create the label files
+

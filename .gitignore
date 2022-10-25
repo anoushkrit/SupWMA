@@ -13,6 +13,10 @@
 *.tfm 
 *.xfm 
 *.mrml
+*.bval
+*.bvec
+*.nhdr
+
 
 # /TrainedModel
 /TrainData
