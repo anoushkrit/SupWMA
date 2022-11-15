@@ -38,7 +38,7 @@ tckconvert ${source_fibers_folder}${subject_ID}/${subject_ID}.tck ${source_fiber
 wm_apply_ORG_atlas_to_subject.sh -i ${source_fibers_folder}${subject_ID}/${subject_ID}.vtk -o ${TEST_PATH} -a ${ORG_ATLASES} -s ${Slicer}
 
 
-#      -i:  Input tractography data stored in VTK (.vtk or .vtp). Note: fiber streamlines need to be in the RAS coordinates.
+    #  -i:  Input tractography data stored in VTK (.vtk or .vtp). Note: fiber streamlines need to be in the RAS coordinates.
     #  -o:  Output directory to save all fiber clustering outputs.
     #  -a:  Path to the ORG atlas (the anatomically curated atlas ORG-800FC-100HCP), within which there should be 
     #       two folders named: ORG-RegAtlas-100HCP and ORG-800FC-100HCP 
