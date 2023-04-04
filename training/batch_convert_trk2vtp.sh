@@ -19,7 +19,7 @@ mkdir $TEST_PATH
 for filename in ${source_fibers_folder}${subject_ID}/tracts/*.trk; do
     fiber_name=`echo ${filename} | sed 's:.*/::'`
     echo $fiber_name
-    echo _______CONVERSION:[.trk to .tck]_________
+    # echo _______CONVERSION:[.trk to .tck]_________
     # shift terminal directory to the .trk source and execute trk2tck
     (cd ${source_fibers_folder}${subject_ID}/tracts; trampolino convert -t ${filename} trk2tck)
 
@@ -29,8 +29,7 @@ for filename in ${source_fibers_folder}${subject_ID}/tracts/*.trk; do
     rm -rf ${source_fibers_folder}${subject_ID}/tracts/trampolino
 
     tckinfo ${source_fibers_folder}${subject_ID}/tracts/${subject_ID}.tck
-    echo _________CONVERSION:[.tck to .vtk]_________
+    # echo _________CONVERSION:[.tck to .vtk]_________
     tckconvert ${source_fibers_folder}${subject_ID}/tracts/${subject_ID}.tck ${source_fibers_folder}${subject_ID}/vtp_tracts/${fiber_name}.vtk -force
-    echo _______________________________________________________
-    echo ${source_fibers_folder}${subject_ID}/vtp_tracts/$fiber_name.vtk
+    # echo ${source_fibers_folder}${subject_ID}/vtp_tracts/$fiber_name.vtk
 done
