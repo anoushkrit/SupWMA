@@ -10,6 +10,9 @@ Compared to several state-of-the-art methods, SupWMA obtains a highly consistent
 
 The contents of this repository are released under an [Slicer](LICENSE) license.
 
+## Training Data
+https://github.com/SlicerDMRI/SupWMA-TrainingData/releases
+
 ## Dependencies:
 
   `conda create --name SupWMA python=3.6.10`
