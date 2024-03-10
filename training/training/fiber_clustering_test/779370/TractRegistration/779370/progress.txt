@@ -1,0 +1,18 @@
+Beginning registration. Total iterations will be: 10
+Start date: 08/27/22
+Start time: 00:56:33
+
+Done iteration 1 / 10 . Percent finished approx: 0.57 . Time: 00:56:36 . Minutes Elapsed: 0.051534855365753175
+Done iteration 2 / 10 . Percent finished approx: 1.14 . Time: 00:56:39 . Minutes Elapsed: 0.047540644804636635
+Done iteration 3 / 10 . Percent finished approx: 1.70 . Time: 00:56:42 . Minutes Elapsed: 0.04791647990544637
+Done iteration 4 / 10 . Percent finished approx: 2.27 . Time: 00:56:45 . Minutes Elapsed: 0.04750686486562093
+Done iteration 5 / 10 . Percent finished approx: 12.50 . Time: 00:57:15 . Minutes Elapsed: 0.5008081515630086
+Done iteration 6 / 10 . Percent finished approx: 22.73 . Time: 00:57:42 . Minutes Elapsed: 0.442511792977651
+Done iteration 7 / 10 . Percent finished approx: 38.64 . Time: 00:58:15 . Minutes Elapsed: 0.5608836015065511
+Done iteration 8 / 10 . Percent finished approx: 54.55 . Time: 00:58:46 . Minutes Elapsed: 0.5113690535227458
+Done iteration 9 / 10 . Percent finished approx: 77.27 . Time: 00:59:38 . Minutes Elapsed: 0.876003889242808
+Done iteration 10 / 10 . Percent finished approx: 100.00 . Time: 01:00:20 . Minutes Elapsed: 0.6993890086809794
+
+Finished registration.
+End date: 08/27/22
+End time: 01:00:43
